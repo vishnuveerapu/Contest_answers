@@ -1,0 +1,28 @@
+class Solution:
+    def waysToMakeFair(self, nums):
+        n=len(nums)
+        peven=[0 for i in range(n)]
+        podd=[0 for i in range(n)]
+        seven=[0 for i in range(n)]
+        sodd=[0 for i in range(n)]
+        even=odd=0
+        for i in range(n):
+            peven[i]=even
+            podd[i]=odd
+            if i%2==0:
+                even+=nums[i]
+            else:
+                odd+=nums[i]
+        even=odd=0 
+        for i in range(n-1,-1,-1):
+            seven[i]=even 
+            sodd[i]=odd 
+            if i%2==0:
+                even+=nums[i]
+            else:
+                odd+=nums[i]
+        ans=0
+        for i in range(n):
+            if peven[i]+sodd[i]==podd[i]+seven[i]:
+                ans+=1
+        return ans

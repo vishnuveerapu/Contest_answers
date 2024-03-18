@@ -1,0 +1,16 @@
+class Solution(object):
+    def countStudents(self, students, sandwiches):
+        n = len(students)
+        i = 0
+        while i < n:
+            if students[0] == sandwiches[0]:
+                students.pop(0)
+                sandwiches.pop(0)
+                i = 0 
+            else:
+                students.append(students.pop(0))
+                i += 1
+            if i >= len(students):
+                break 
+        return len(students)
+        

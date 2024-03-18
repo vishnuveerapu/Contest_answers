@@ -1,0 +1,10 @@
+n = int(input())
+arr = list(map(int,input().split()))
+p = [0]*n
+product = 1
+for x in arr:
+    product *=x
+for i in range(n):
+    p[i] = int(product/arr[i])
+print(*p)
+    

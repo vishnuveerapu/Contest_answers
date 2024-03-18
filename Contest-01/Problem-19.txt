@@ -1,0 +1,18 @@
+# longest substring without repeating characters
+
+def sub(s):
+    map = {}
+    max_length = 0
+    start = 0
+    
+    for end in range(len(s)):
+        if s[end] in map:
+            start = max(start, map[s[end]] + 1)
+        
+        map[s[end]] = end
+        max_length = max(max_length, end - start + 1)
+    
+    return max_length
+
+s = input()
+print(sub(s))

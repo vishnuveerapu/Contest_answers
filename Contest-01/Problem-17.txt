@@ -1,0 +1,13 @@
+def sub(arr,n):
+    pre_sum=0
+    h=set()
+    for i in range(n):
+        pre_sum+=arr[i]
+        if pre_sum==0 or pre_sum in h:
+            return "Yes"
+        h.add(pre_sum)
+    return "No"
+
+n = int(input())
+arr = list(map(int,input().split()))
+print(sub(arr,n))
